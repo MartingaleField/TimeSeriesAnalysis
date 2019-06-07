@@ -1,0 +1,219 @@
+\documentclass[14pt, letterpaper]{extarticle}
+\usepackage[colorlinks,linkcolor=blue,anchorcolor=blue,citecolor=blue, urlcolor=black]{hyperref}
+%\usepackage{mathpazo}
+\setlength{\parindent}{0in}
+\setlength{\parskip}{0.6em}
+\linespread{1.2}
+
+%% libertine
+%\usepackage{biolinum}
+%\usepackage[libertine]{newtxmath}
+%\renewcommand*\familydefault{\sfdefault}  %% Only if the base font of the document is to be sans serif
+
+%\usepackage{sourcecodepro}
+%\usepackage{FiraMono}
+%\usepackage{inconsolata}
+
+
+\usepackage[garamond]{mathdesign}
+\usepackage[T1]{fontenc}
+
+\usepackage{microtype}
+\DisableLigatures[f]{encoding = *, family = tt* }
+
+\usepackage[ruled]{algorithm2e}
+
+%\usepackage[urw-garamond]{mathdesign}
+\usepackage{fbb}
+
+%\newcommand{\codestyle}[1]{{\tt\color{javared}\small #1}}
+\usepackage{dsfont}
+
+
+\renewcommand{\labelenumii}{\theenumii}
+\renewcommand{\theenumii}{\theenumi.\arabic{enumii}.}
+
+%\renewcommand{\rmdefault}{ptm}
+%\usepackage{mathptmx}
+\usepackage[margin=0.6in]{geometry}  % set the margins to 1in on all sides
+\usepackage{graphicx}              % to include figures
+\usepackage{amsmath}               % great math stuff
+\usepackage{amsfonts}              % for blackboard bold, etc
+\usepackage{amsthm}                % better theorem environments
+%\usepackage{amssymb}
+\usepackage{subfig}
+\usepackage{natbib}
+\usepackage{graphicx}
+\usepackage{enumitem}
+\usepackage{booktabs}   % for table
+\usepackage{multirow, multicol}   % for table
+\usepackage{empheq}
+\usepackage{wrapfig,lipsum}
+\newcommand*\widefbox[1]{\fbox{\hspace{1em}#1\hspace{1em}}}
+
+
+%\numberwithin{equation}{section}
+
+%\usepackage{kpfonts,baskervald}
+
+
+
+
+\theoremstyle{definition}
+
+\newtheorem{thm}{Theorem}
+\numberwithin{thm}{subsection}
+%\newtheorem*{thm-non}{Theorem}
+\newtheorem*{remark}{NB}
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{prop}[thm]{Proposition}
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{conj}[thm]{Conjecture}
+\newtheorem{fact}[thm]{Fact}
+\newtheorem{problem}[thm]{Problem}
+
+\newtheorem{mynot}[thm]{Notation}
+
+\newtheorem{mydef}{Definition}
+\numberwithin{mydef}{subsection}
+
+\newtheorem{eg}{Example}
+\numberwithin{eg}{subsection}
+
+\BeforeBeginEnvironment{thm}{\begin{tcolorbox}[drop shadow, colback=white]}%
+\AfterEndEnvironment{thm}{\end{tcolorbox}}
+\BeforeBeginEnvironment{cor}{\begin{tcolorbox}[drop shadow, colback=white, colframe=blue!55!green]}%
+\AfterEndEnvironment{cor}{\end{tcolorbox}}
+\BeforeBeginEnvironment{eg}{\begin{tcolorbox}[drop shadow, colback=white, colframe=green!55!black]}%
+\AfterEndEnvironment{eg}{\end{tcolorbox}}
+\BeforeBeginEnvironment{mydef}{\begin{tcolorbox}[drop shadow, colback=white, colframe=orange!75!red]}%
+\AfterEndEnvironment{mydef}{\end{tcolorbox}}
+\BeforeBeginEnvironment{lem}{\begin{tcolorbox}[drop shadow, colback=white, colframe=red!75!black]}%
+\AfterEndEnvironment{lem}{\end{tcolorbox}}
+
+\DeclareMathOperator*{\argmin}{arg\,min}
+\DeclareMathOperator*{\argmax}{arg\,max}
+
+
+\newcommand{\E}{\mathbb{E}}
+\renewcommand{\P}{\mathbb{P}}
+\newcommand{\V}{\mathbb{V}\text{ar}}
+\newcommand{\C}{\mathbb{C}\text{ov}}
+
+\newcommand*{\wP}{\widetilde{\P}}
+\newcommand*{\wE}{\widetilde{\E}}
+\newcommand*{\md}{\mathrm{d}}
+\newcommand*{\mb}[1]{\mathbf{#1}}
+\newcommand*{\bs}[1]{\boldsymbol{#1}}
+\newcommand{\CI}{\mathrel{\text{\scalebox{1}{$\perp\mkern-10mu\perp$}}}}
+\newcommand*{\my}{\mb{Y}}
+\newcommand*{\mx}{\mb{X}}
+\newcommand*{\bb}{\bs{\beta}}
+\newcommand*{\bt}{\bs{\theta}}
+\newcommand*{\mfb}{\mathfrak{B}}
+
+\usepackage{tikz}
+\usetikzlibrary{arrows}
+
+%% Remove QED for proof environment
+\makeatletter
+\renewenvironment{proof}[1][\proofname]{\par
+%  \pushQED{\qed}% <--- remove the QED business
+  \normalfont \topsep6\p@\@plus6\p@\relax
+  \trivlist
+  \item[\hskip\labelsep
+        \itshape
+    #1\@addpunct{.}]\ignorespaces
+}{%
+%  \popQED% <--- remove the QED business
+  \endtrivlist\@endpefalse
+}
+\renewcommand\qedhere{} % to ensure code portability
+\makeatother
+
+
+\setlist[description]{leftmargin=*}
+
+
+\usepackage[cache=true]{minted}
+\usemintedstyle[python]{pastie}
+\usemintedstyle[console]{pastie}
+\usemintedstyle[R]{tango}
+\definecolor{bg}{HTML}{282828}
+\usetikzlibrary{shadings}
+\usepackage{tcolorbox}
+\tcbuselibrary{breakable,skins}
+\usepackage{etoolbox}
+\tcbset{enhanced, breakable,colback=white,colframe=blue!30!black,boxrule=0.3mm}
+%\BeforeBeginEnvironment{minted}{\begin{tcolorbox}[drop shadow, colback=white]}%
+%\AfterEndEnvironment{minted}{\end{tcolorbox}}%
+\BeforeBeginEnvironment{python}{\begin{tcolorbox}[drop shadow, colback=white, colframe=green!55!black, 
+%title=\textbf{Python 3}
+]}%
+\AfterEndEnvironment{python}{\end{tcolorbox}}
+
+\BeforeBeginEnvironment{remark}{\begin{tcolorbox}[drop shadow, colback=white, colframe=red]}
+\AfterEndEnvironment{remark}{\end{tcolorbox}}
+
+%\newminted[python]{python}{xleftmargin=\parindent, python3=true, bgcolor=white, fontsize=\normalsize, breaklines=true}
+\newminted[python]{python}{xleftmargin=\parindent, python3=true, obeytabs=true, fontsize=\small, breaklines=true}
+\newminted[Output]{console}{xleftmargin=\parindent, frame=lines, bgcolor=white, mathescape, fontsize=\normalsize, breaklines=true}
+\newminted[Network]{R}{breaklines=true}
+
+\newcommand{\mynb}[2]{\begin{proof}[\textbf{#1}] #2 \end{proof}}
+
+
+
+\usepackage{siunitx}
+% \sisetup{output-decimal-marker={,}}% OP now wants to have the default dot
+\sisetup{detect-weight, mode=text}
+\newcommand*\rotbf[1]{\rotatebox{90}{\textbf{#1}}}
+\newcommand{\specialcell}[2][b]{\begin{tabular}[#1]{@{}c@{}}#2\end{tabular}}
+\newcommand{\specialcellbold}[2][b]{%
+  \bfseries
+  \sisetup{text-rm=\bfseries}%
+  \begin{tabular}[#1]{@{}c@{}}#2\end{tabular}%
+}
+\newcommand*{\leftspecialcell}[2][b]{%
+  \begin{tabular}[#1]{@{}l@{}}#2\end{tabular}%
+}
+
+
+\definecolor{light-gray}{gray}{0.85}
+%\renewcommand\emph[1]{\colorbox{light-gray}{\textit{#1}}}
+
+\newcommand{\code}[1]{\mintinline{python}{#1}}
+
+\begin{document}
+
+\section{Mathematical Formalism}
+
+\begin{itemize}
+\item $ \mb{v}_{j} $: representation vector of modellable asset $ j $. This will stay the same for all periods.
+\item $ \mb{w}_{t-1} $: modellable weight vector at the beginning of period $ t $.
+\item $ \mb{b}_{t-1} $: representation vector of benchmark asset at the beginning of period $ t-1 $.
+\begin{align*}
+\mb{b}_{t-1} = \sum_j w_{j,t-1} \mb{v}_j
+\end{align*}
+\item $ \mb{u}_{i,t-1} $: representation vector of non-modellable asset $ i $ at the beginning of period $ t $.
+\begin{align*}
+\mb{u}_{i,t} = \mb{u}_{i,t-1} + \beta_{i,t}\mb{b}_{t-1}
+\end{align*}
+\item $ p_{t-1} $: negative ES (NES) of non-modellable portfolio at the beginning of period $ t $.
+\begin{align*}
+p_t 
+&= p_{t-1} + r_t \\
+&= p_{t-1} + \sum_i \left[\text{NES}\left( \mb{u}_{i,t} \right) - \text{NES}\left(\mb{u}_{i,t-1}\right)\right]
+\end{align*}
+The final NES is
+\begin{align*}
+p_f = p_0 \sum_t^{t_f+1} r_t 
+\end{align*}
+We want to maximize $ p_f $ for a given time frame, which is equivalent to maximizing
+\begin{align*}
+R = \frac{1}{t_f} \sum_{t=1}^{t_f+1} r_t
+\end{align*}
+\end{itemize}
+
+
+\end{document}
